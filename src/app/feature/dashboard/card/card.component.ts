@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Recipes } from './../dashboard.model';
 
 @Component({
   selector: 'app-card',
@@ -7,7 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  @Input() recipe:any;
+  /** Hold recipe object */
+  @Input() recipe: Recipes;
   constructor() { }
 
   ngOnInit() {

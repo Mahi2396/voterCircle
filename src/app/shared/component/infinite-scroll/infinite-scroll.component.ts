@@ -35,7 +35,6 @@ export class InfiniteScrollComponent implements OnInit, OnDestroy {
       ...this.options,
     };
 
-    // entry.isIntersecting &&
     this.observer = new IntersectionObserver(([entry, observer]) => {
       if (entry.isIntersecting && entry.intersectionRatio > 0.75) {
         this.scrolled.emit();

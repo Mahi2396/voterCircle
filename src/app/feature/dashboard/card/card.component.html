@@ -1,16 +1,16 @@
-<a [href]="recipe.href" target="_blnk" class="vc-href" [title]="recipe.title">
+<a [href]="recipe?.href" target="_blnk" class="vc-href" [title]="recipe?.title">
   <div class="card vc-mr-4 vc-p-4">
     <div class="card-body p-0">
       <div class="vc-img-wrapper">
         <img
           class="img food-img"
           [src]="
-            recipe.thumbnail ? recipe.thumbnail : '../../assets/img/default.png'
+            recipe?.thumbnail ? recipe?.thumbnail : '../../assets/img/default.png'
           "
-          [alt]="recipe.title"
+          [alt]="recipe?.title"
         />
         <div class="recepie-title vc-ml-4 font-w-600 vc-control-text">
-          {{ recipe.title }}
+          {{ recipe?.title }}
         </div>
       </div>
     </div>
