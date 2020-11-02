@@ -1,0 +1,27 @@
+<a [href]="recipe.href" target="_blnk" class="vc-href" [title]="recipe.title">
+  <div class="card vc-mr-4 vc-p-4">
+    <div class="card-body p-0">
+      <div class="vc-img-wrapper">
+        <img
+          class="img food-img"
+          [src]="
+            recipe.thumbnail ? recipe.thumbnail : '../../assets/img/default.png'
+          "
+          [alt]="recipe.title"
+        />
+        <div class="recepie-title vc-ml-4 font-w-600 vc-control-text">
+          {{ recipe.title }}
+        </div>
+      </div>
+    </div>
+    <div class="card-footer vc-pt-2">
+      <div class="subtitle font-w-600 vc-control-text vc-mb-2">Ingredients</div>
+      <span
+        class="ingredients vc-mr-2 vc-mb-2"
+        *ngFor="let ingredient of recipe?.ingredients.split(',')"
+      >
+        {{ ingredient }}
+      </span>
+    </div>
+  </div>
+</a>

@@ -1,0 +1,55 @@
+// standard margin & padding classes
+@for $i from 1 through 4 {
+  $size: 0;
+  @if #{$i/4} {
+    $size: #{$i/4}rem;
+  } @else {
+    $size: 0px;
+  }
+  // calculated space
+  .vc- {
+    // padding classes
+    &p-#{$i} {
+      padding: $size;
+    }
+    &pt-#{$i} {
+      padding-top: $size;
+    }
+    &pl-#{$i} {
+      padding-left: $size;
+    }
+    &pb-#{$i} {
+      padding-bottom: $size;
+    }
+    &pr-#{$i} {
+      padding-right: $size;
+    }
+    // end padding
+
+    // margin classes
+    &m-#{$i} {
+      margin: $size;
+    }
+    &mt-#{$i} {
+      margin-top: $size;
+    }
+    &ml-#{$i} {
+      margin-left: $size;
+    }
+    &mb-#{$i} {
+      margin-bottom: $size;
+    }
+    &mr-#{$i} {
+      margin-right: $size;
+    }
+  }
+}
+
+@for $i from 100 through 700 {
+  $size: #{$i};
+  .font- {
+    &w-#{$i} {
+      font-weight: $size;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@import "./../../../assets/style/variable";
+:host {
+  .filter-main-wrapper {
+    border-bottom: 1px solid #e6e6e9;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: -1px;
+    background: $white;
+    z-index: 10;
+    .filter-container {
+      display: flex;
+      justify-content: flex-end;
+      .ingredient-search,
+      .search {
+        min-width: 400px;
+        ::ng-deep {
+          .position-relative {
+            position: relative;
+            input {
+              padding: 8px 16px;
+              border-radius: 4px;
+              border: 1px solid $border;
+              margin: 0;
+            }
+            .dropdown-content {
+              position: absolute;
+            }
+          }
+        }
+      }
+    }
+    .tags-container {
+      .tags {
+        background: #cacbcc;
+        border-radius: 12px;
+        padding: 5px 10px;
+        display: inline-block;
+        .close {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .more-recoder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

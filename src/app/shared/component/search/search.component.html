@@ -1,0 +1,9 @@
+<div class="search-box">
+  <input
+    #searchBox
+    type="text"
+    [placeholder]="placeholder"
+    class="search-box-input"
+    (input)="search(searchBox.value)"
+  />
+</div>

@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "./assets/style/common";
+@import "./assets/style/variable";
+@import "spacing";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: $backgroundTheme;
+}
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serf;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 14px;
+}
+
+.vc-control-text {
+  color: #060322;
+}

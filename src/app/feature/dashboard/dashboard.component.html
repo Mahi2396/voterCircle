@@ -1,0 +1,80 @@
+<app-infinite-scroll
+  (scrolled)="onScroll()"
+  style="
+    height: calc(100vh - 60px);
+    width: 100%;
+    display: block;
+    overflow-y: auto;
+  "
+>
+  <div class="filter-main-wrapper">
+    <div class="filter-container vc-p-4 container">
+      <div class="ingredient-search vc-mr-4 vc-mb-2">
+        <label class="vc-control-text vc-mb-1">Search ingredient</label>
+        <ngx-autocomplete
+          [searchKeyword]="'value'"
+          #ngautocomplete
+          [inputId]="'searchIngredients'"
+          [placeholderValue]="'Search by ingredient'"
+          [entries]="ingredientsList"
+          (selectedValue)="selectEvent($event, ngautocomplete)"
+        >
+        </ngx-autocomplete>
+      </div>
+      <div class="search">
+        <label class="vc-control-text vc-mb-1">Search by name</label>
+        <app-search
+          [placeholder]="'Search by recipe name'"
+          (doneTyping)="search($event)"
+        >
+        </app-search>
+      </div>
+    </div>
+    <div
+      class="tags-container container vc-pb-2"
+      *ngIf="filters?.ingredients?.length"
+    >
+      <label class="title font-w-600 vc-mb-1 vc-control-text"
+        >Selected ingredients</label
+      >&nbsp;&nbsp;
+      <span
+        class="tags vc-mr-2 vc-control-text"
+        *ngFor="let tags of filters?.ingredients; let idx = index"
+        >{{ tags }}
+        <span class="close" title="remove" (click)="removeIngredients(idx)"
+          >&times;</span
+        ></span
+      >
+    </div>
+  </div>
+
+  <div class="dashboard-main-container container">
+    <div class="list-container">
+      <div class="title font-w-600 vc-mt-2 vc-mb-2">
+        {{ recipesList.title }}
+      </div>
+      <div class="row">
+        <ng-container *ngIf="recipesList?.results?.length; else noRecords">
+          <ng-container *ngFor="let recipe of recipesList?.results">
+            <div class="col-6 col-12 pr-0 vc-mb-4">
+              <app-card
+                style="display: inline-block; width: 100%"
+                [recipe]="recipe"
+              ></app-card>
+            </div>
+          </ng-container>
+        </ng-container>
+        <ng-template #noRecords>
+          <div class="margin-auto">
+            <img src="./../../../assets/img/noResult.png" alt="no records" />
+            <div class="vc-control-text font-w-600 vc-mt-3">No recipe foud</div>
+          </div>
+        </ng-template>
+      </div>
+      <div class="more-recoder font-w-600 vc-control-text" *ngIf="isLoader">
+        Fetching recipes
+        <div class="loader vc-ml-4"></div>
+      </div>
+    </div>
+  </div>
+</app-infinite-scroll>
